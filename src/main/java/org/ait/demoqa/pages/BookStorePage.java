@@ -22,7 +22,8 @@ public class BookStorePage extends BasePage {
     WebElement bookName;
 
     public BookStorePage verifyBookName(String book) {
-        Assert.assertTrue(bookName.getText().contains(book));
+        Assert.assertTrue(isTextPresent(bookName,book));
         return this;
     }
+
 }
