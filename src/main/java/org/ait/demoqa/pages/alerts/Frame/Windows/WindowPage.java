@@ -1,5 +1,6 @@
-package org.ait.demoqa.pages;
+package org.ait.demoqa.pages.alerts.Frame.Windows;
 
+import org.ait.demoqa.pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,18 +30,19 @@ WebElement title;
         Assert.assertTrue(isTextPresent(title,text));
         return this;
     }
-@FindBy(xpath="//button[@id='messageWindowButton']")
-WebElement windowNewMessage;
-    public WindowPage switchToNewWindowMessage(int index) {
-       click(windowNewMessage);
-        List<String> tabs = new ArrayList<>(driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(index));
+
+    @FindBy(css = "#windowButton")
+    WebElement newWindowButton;
+    public WindowPage switchToNewWindow(int index) {
+        click(newWindowButton);
+        List<String> windows = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(windows.get(index));
         return this;
     }
-    @FindBy(xpath="//body")
-    WebElement titleMessage;
-    public WindowPage verifyNewWindowMessageTitle(String text) {
-        Assert.assertTrue(isTextPresent(titleMessage,text));
+    @FindBy(tagName = "h1")
+    WebElement titleWindow;
+    public WindowPage verifyNewWindowTitle(String text) {
+        Assert.assertTrue(isTextPresent(titleWindow, text));
         return this;
     }
 }

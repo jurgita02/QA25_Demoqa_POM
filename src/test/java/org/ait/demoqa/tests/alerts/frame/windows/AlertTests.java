@@ -1,8 +1,9 @@
-package org.ait.demoqa.tests;
+package org.ait.demoqa.tests.alerts.frame.windows;
 
-import org.ait.demoqa.pages.AlertsPage;
+import org.ait.demoqa.pages.alerts.Frame.Windows.AlertsPage;
 import org.ait.demoqa.pages.HomePage;
-import org.ait.demoqa.pages.SidePanelAlert;
+import org.ait.demoqa.pages.alerts.Frame.Windows.SidePanelAlert;
+import org.ait.demoqa.tests.TestBase;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 

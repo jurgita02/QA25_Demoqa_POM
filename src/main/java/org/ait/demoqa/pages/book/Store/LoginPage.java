@@ -1,5 +1,6 @@
-package org.ait.demoqa.pages;
+package org.ait.demoqa.pages.book.Store;
 
+import org.ait.demoqa.pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
