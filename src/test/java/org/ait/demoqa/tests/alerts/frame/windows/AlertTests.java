@@ -13,7 +13,7 @@ public class AlertTests extends TestBase {
     // click on Alerts
     @BeforeMethod
     public void preconditions() {
-        new HomePage(driver).getAlerts();
+        new HomePage(driver).getAlertsFramesWindows();
         new SidePanelAlert(driver).clickOnAlertsLink();
     }
     @Test

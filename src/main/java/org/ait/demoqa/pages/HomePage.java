@@ -17,9 +17,9 @@ public class HomePage extends BasePage {
         return new SidePanel (driver);
     }
 @FindBy(xpath="//h5[.='Alerts, Frame & Windows']")
-WebElement alertsLink;
-    public AlertsPage getAlerts() {
-        clickWithJSExecutor(alertsLink,0,400);
+WebElement alertsFramesWindows;
+    public AlertsPage getAlertsFramesWindows() {
+        clickWithJSExecutor(alertsFramesWindows,0,400);
         return new AlertsPage(driver);
     }
     @FindBy(css=".top-card:nth-child(1)")
@@ -27,6 +27,12 @@ WebElement alertsLink;
 
     public SidePanel getElements() {
         clickWithJSExecutor(elements,0,200);
+        return new SidePanel(driver);
+    }
+    @FindBy(css=".top-card:nth-child(4)")
+    WebElement widgets;
+    public SidePanel getWidgets() {
+        clickWithJSExecutor(widgets,0,200);
         return new SidePanel(driver);
     }
 }

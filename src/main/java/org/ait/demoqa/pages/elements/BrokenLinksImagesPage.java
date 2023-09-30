@@ -19,7 +19,7 @@ List<WebElement> images;
         System.out.println("Total number of images on the page "+ images.size());
         for (int i = 0;i< images.size();i++) {
             WebElement image = images.get(i);
-            String imageUrl = image.getAttribute("src");
+            String imageUrl = getValueAttribute(image, "src");
             System.out.println("URL of image " + (i + 1) + " is " + imageUrl);
             verifyLinks(imageUrl);
 

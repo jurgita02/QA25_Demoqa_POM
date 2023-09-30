@@ -23,7 +23,7 @@ public class ProfilePage extends BasePage {
         return this;
     }
 
-    @FindBy(id = "delete-record-undefin")
+    @FindBy(id = "delete-record-undefined")
     List<WebElement> bookListTrash;
 
     @FindBy(id="closeSmallModal-ok")

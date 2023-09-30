@@ -31,7 +31,7 @@ public class LinksPage extends BasePage {
     public LinksPage checkBrokenLinks() {
         for (int i = 0; i < allLinks.size(); i++) {
             WebElement el = allLinks.get(i);
-            String url = el.getAttribute("href");
+            String url = getValueAttribute(el, "href");
             verifyLinks(url);
         }
         return this;

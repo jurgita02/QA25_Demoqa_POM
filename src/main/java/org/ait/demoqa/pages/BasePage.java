@@ -76,5 +76,9 @@ public void pause(int millis){
             System.out.println(linkUrl + " - " + ex.getMessage() + " is broken link");
         }
     }
+
+    public String getValueAttribute(WebElement element, String name) {
+        return element.getAttribute(name);
+    }
 }
 

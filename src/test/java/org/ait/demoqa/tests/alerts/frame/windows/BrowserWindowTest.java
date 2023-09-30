@@ -12,7 +12,7 @@ public class BrowserWindowTest extends TestBase {
     //click on Browser Windows
     @BeforeMethod
     public void preconditions() {
-new HomePage(driver).getAlerts();
+new HomePage(driver).getAlertsFramesWindows();
         new SidePanelAlert(driver).clickOnBrowserWindowLink();
     }
     @Test

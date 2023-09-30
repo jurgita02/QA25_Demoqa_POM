@@ -93,4 +93,18 @@ WebElement confirmButton;
 click(timerAlert);
         return this;
     }
+
+
+@FindBy(xpath="//span[.='Frames']")
+WebElement frames;
+    public FramePage selectFrame() {
+        clickWithJSExecutor(frames,0,300);
+        return new FramePage(driver);
+    }
+    @FindBy(xpath="//span[.='Nested Frames']")
+    WebElement nestedFrames;
+    public NestedFramesPage selectNestedFrames() {
+        clickWithJSExecutor(nestedFrames,0,300);
+        return new NestedFramesPage(driver);
+    }
 }

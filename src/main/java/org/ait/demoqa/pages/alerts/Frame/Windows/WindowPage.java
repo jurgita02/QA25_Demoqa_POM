@@ -15,7 +15,7 @@ public class WindowPage extends BasePage {
         super(driver);
     }
 
-    @FindBy(xpath = "//button[@id='tabButton']")
+    @FindBy(id = "tabButton")
     WebElement tabButton;
 
     public WindowPage switchToNewTab(int index) {

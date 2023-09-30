@@ -24,7 +24,6 @@ public class AddBookToCollectionTests extends TestBase {
         new LoginPage(driver).login(UserData.USER_NAME,UserData.USER_PASSWORD);
 
     }
-
     @Test
     public void  addBookToCollectionTest(){
         //enter book name
