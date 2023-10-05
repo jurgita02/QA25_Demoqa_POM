@@ -6,8 +6,10 @@ import org.ait.demoqa.pages.book.Store.ProfilePage;
 import org.ait.demoqa.pages.elements.BrokenLinksImagesPage;
 import org.ait.demoqa.pages.elements.ButtonsPage;
 import org.ait.demoqa.pages.elements.LinksPage;
+import org.ait.demoqa.pages.forms.PracticeFormPage;
 import org.ait.demoqa.pages.widgets.AutoCompletePage;
 import org.ait.demoqa.pages.widgets.MenuPage;
+import org.ait.demoqa.pages.widgets.SelectMenuPage;
 import org.ait.demoqa.pages.widgets.SliderPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -69,5 +71,20 @@ WebElement profile;
     public MenuPage selectMenu() {
         clickWithJSExecutor(menu,0,600);
         return new MenuPage(driver);
+    }
+
+    @FindBy(xpath = "//span[.='Select Menu']")
+    WebElement selectMenu;
+    public SelectMenuPage selectSelectMenu() {
+        clickWithJSExecutor(selectMenu,0,600);
+        return new SelectMenuPage(driver);
+    }
+
+
+    @FindBy(xpath = "//span[.='Practice Form']")
+    WebElement practiceForm;
+    public PracticeFormPage selectPracticeForm() {
+        clickWithJSExecutor(practiceForm,0,300);
+        return new PracticeFormPage(driver);
     }
 }
