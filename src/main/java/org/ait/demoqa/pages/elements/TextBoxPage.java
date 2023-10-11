@@ -36,20 +36,14 @@ typeWithJSExecutor(currentAddress,text,0,100);
 
     @FindBy(id="permanentAddress")
     WebElement permanentAddress;
+
+    @FindBy(id = "submit")
+    WebElement submitButton;
     public TextBoxPage assertCopyPastText(String text) {
-        // Gaukite tekstinę eilutę iš lauko "Current address" ir "Permanent Address"
-        String currentAddressText = currentAddress.getAttribute("value");
+        submitButton.click();
         String permanentAddressText = permanentAddress.getAttribute("value");
+        Assert.assertEquals( permanentAddressText, text);
 
-        // Padalinkite gautą tekstą pagal naująją eilutę (jei tai atitinka jūsų duomenis)
-        String[] currentAddressLines = currentAddressText.split("\n");
-        String[] permanentAddressLines = permanentAddressText.split("\n");
-
-        // Palyginkite atitinkamas eilutes su tikėjamu tekstu
-        for (int i = 0; i < currentAddressLines.length; i++) {
-            Assert.assertEquals(currentAddressLines[i], text);
-            Assert.assertEquals(permanentAddressLines[i], text);
-        }
         return this;
     }
 }
