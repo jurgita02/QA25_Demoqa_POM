@@ -1,12 +1,11 @@
 package org.ait.demoqa.pages.forms;
 
 import org.ait.demoqa.pages.BasePage;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.Rectangle;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 public class PracticeFormPage extends BasePage {
 
@@ -137,9 +136,29 @@ stateInput.sendKeys(Keys.ENTER);
     @FindBy(id="submit")
     WebElement submit;
     public PracticeFormPage submit() {
-        clickWithRectangle(submit,2,3);
+        pause(2000);
+        clickWithRectangle(submit,5,5);
         return this;
     }
+    @FindBy(id="example-modal-sizes-title-lg")
+    WebElement modalTitle;
+    public PracticeFormPage assertSubmit(String title) {
+        Assert.assertTrue(isTextPresent(modalTitle, title));
+        return this;
+    }
+@FindBy(css=".react-datepicker__month-select")
+WebElement selectMonth;
+    @FindBy(css=".react-datepicker__year-select")
+    WebElement selectYear;
 
+
+    public PracticeFormPage selectDate(String month, String year, String day) {
+        clickWithJSExecutor(dateOfBirthInput,0,300);
+
+        new Select(selectMonth).selectByVisibleText(month);
+        new Select(selectYear).selectByVisibleText(year);
+        driver.findElement(By.xpath("//div[@class='react-datepicker__week']//div[.='"+day+"']")).click();
+        return this;
+    }
 
 }

@@ -5,6 +5,7 @@ import org.ait.demoqa.pages.HomePage;
 import org.ait.demoqa.pages.SidePanel;
 import org.ait.demoqa.pages.forms.PracticeFormPage;
 import org.ait.demoqa.tests.TestBase;
+import org.ait.demoqa.utils.DataProviders;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -24,8 +25,10 @@ public class PracticeFormTests extends TestBase {
         //select gender
                 .selectGender(StudentData.GENDER)
         //enter Date of Birth
-        .enterDate(StudentData.DATE)
+       // .enterDate(StudentData.DATE)
         //select subjects
+                //cia yra antrasis variantas DATE , kada pasirenkame data patys, nurodydami diena, metus, men
+           .selectDate("May","2001","15")
         .selectSubjects(StudentData.SUBJECTS)
         //select hobbies
         .selectHobbies(StudentData.HOBBIES)
@@ -38,6 +41,25 @@ public class PracticeFormTests extends TestBase {
         //select city
         .selectCity(StudentData.CITY)
         //click on Submit
-        .submit();
+        .submit()
+         .assertSubmit("Thanks for submitting the form");
+    }
+
+    @Test(dataProviderClass = DataProviders.class,dataProvider = "studentDataFromCSVFile")
+    public void fillStudentFormUsingDataProviderTest(String name, String lastname, String email,
+                                                     String phone,String dateOfBirth,
+                                                     String path, String address) {
+
+        new PracticeFormPage(driver).enterPersonalData(name,lastname,email,phone)
+                .selectGender(StudentData.GENDER)
+                .enterDate(dateOfBirth)
+                .selectSubjects(StudentData.SUBJECTS)
+                .selectHobbies(StudentData.HOBBIES)
+                .uploadFile(path)
+                .enterAddress(address)
+                .selectState(StudentData.STATE)
+                .selectCity(StudentData.CITY)
+                .submit()
+                .assertSubmit("Thanks for submitting the form");
     }
 }

@@ -42,4 +42,10 @@ WebElement alertsFramesWindows;
         clickWithJSExecutor(forms,0,200);
         return new SidePanel(driver);
     }
+    @FindBy(css=".top-card:nth-child(5)")
+    WebElement interactions;
+    public SidePanel getInteractions() {
+        clickWithJSExecutor(interactions,0,200);
+        return new SidePanel(driver);
+    }
 }
