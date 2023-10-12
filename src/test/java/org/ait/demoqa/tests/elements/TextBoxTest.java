@@ -9,13 +9,20 @@ import org.testng.annotations.Test;
 
 public class TextBoxTest extends TestBase {
     @BeforeMethod
-    public void precondition(){
+    public void precondition() {
         new HomePage(driver).getElements();
         new SidePanel(driver).selectTextBox().hideIframes();
     }
+  /*
     @Test
     public void keyBoardEventTest(){
         new TextBoxPage(driver).keyBoardEvent("Simensdamm 20")
                 .assertCopyPastText("Simensdamm 20");
     }
+     */
+  @Test
+  public void keyBoardEventTest() {
+      new TextBoxPage(driver).keyBoardEvent("Simensdamm 20")
+              .assertCopyPastText();
+  }
 }

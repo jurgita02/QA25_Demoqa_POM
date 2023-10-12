@@ -19,6 +19,8 @@ public class TextBoxPage extends BasePage {
 
     @FindBy(id="currentAddress")
     WebElement currentAddress;
+    @FindBy(id = "submit")
+    WebElement submit;
 
     public TextBoxPage keyBoardEvent(String text) {
 typeWithJSExecutor(currentAddress,text,0,100);
@@ -31,18 +33,35 @@ typeWithJSExecutor(currentAddress,text,0,100);
         actions.sendKeys(Keys.TAB).perform();
         //past current address in permanent address field
         actions.keyDown(Keys.CONTROL).sendKeys("v").keyUp(Keys.CONTROL).perform();
+        clickWithJSExecutor(submit, 0, 500);
+        return this;
+    }
+//cia buvo mano metodas namu darbu lyginimui
+  //  @FindBy(id="permanentAddress")
+  //  WebElement permanentAddress;
+
+   // @FindBy(id = "submit")
+ //   WebElement submitButton;
+   // public TextBoxPage assertCopyPastText(String text) {
+     //   submitButton.click();
+      //  String permanentAddressText = permanentAddress.getAttribute("value");
+     //   Assert.assertEquals( permanentAddressText, text);
+     //   return this;
+  //  }
+   //++ click Submit
+
+    @FindBy(css = ".border > #currentAddress")
+    WebElement currentAddressResult;
+
+    @FindBy(css = ".border > #permanentAddress")
+    WebElement permanentAddressResult;
+
+    public TextBoxPage assertCopyPastText() {
+        String[] current =  currentAddressResult.getText().split(":");
+        String[] permanent =  permanentAddressResult.getText().split(":");
+
+        Assert.assertEquals(permanent[1],current[1]);
         return this;
     }
 
-    @FindBy(id="permanentAddress")
-    WebElement permanentAddress;
-
-    @FindBy(id = "submit")
-    WebElement submitButton;
-    public TextBoxPage assertCopyPastText(String text) {
-        submitButton.click();
-        String permanentAddressText = permanentAddress.getAttribute("value");
-        Assert.assertEquals( permanentAddressText, text);
-        return this;
-    }
 }
