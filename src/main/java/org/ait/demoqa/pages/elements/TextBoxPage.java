@@ -43,7 +43,6 @@ typeWithJSExecutor(currentAddress,text,0,100);
         submitButton.click();
         String permanentAddressText = permanentAddress.getAttribute("value");
         Assert.assertEquals( permanentAddressText, text);
-
         return this;
     }
 }
