@@ -7,9 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
-import org.testng.annotations.Test;
 
-import java.security.Key;
 
 public class TextBoxPage extends BasePage {
 
@@ -17,10 +15,10 @@ public class TextBoxPage extends BasePage {
         super(driver);
     }
 
+
     @FindBy(id="currentAddress")
     WebElement currentAddress;
-    @FindBy(id = "submit")
-    WebElement submit;
+
 
     public TextBoxPage keyBoardEvent(String text) {
 typeWithJSExecutor(currentAddress,text,0,100);
@@ -33,23 +31,16 @@ typeWithJSExecutor(currentAddress,text,0,100);
         actions.sendKeys(Keys.TAB).perform();
         //past current address in permanent address field
         actions.keyDown(Keys.CONTROL).sendKeys("v").keyUp(Keys.CONTROL).perform();
+
+        return this;
+    }
+
+    @FindBy(id = "submit")
+    WebElement submit;
+    public TextBoxPage submit(){
         clickWithJSExecutor(submit, 0, 500);
         return this;
     }
-//cia buvo mano metodas namu darbu lyginimui
-  //  @FindBy(id="permanentAddress")
-  //  WebElement permanentAddress;
-
-   // @FindBy(id = "submit")
- //   WebElement submitButton;
-   // public TextBoxPage assertCopyPastText(String text) {
-     //   submitButton.click();
-      //  String permanentAddressText = permanentAddress.getAttribute("value");
-     //   Assert.assertEquals( permanentAddressText, text);
-     //   return this;
-  //  }
-   //++ click Submit
-
     @FindBy(css = ".border > #currentAddress")
     WebElement currentAddressResult;
 

@@ -13,16 +13,10 @@ public class TextBoxTest extends TestBase {
         new HomePage(driver).getElements();
         new SidePanel(driver).selectTextBox().hideIframes();
     }
-  /*
-    @Test
-    public void keyBoardEventTest(){
-        new TextBoxPage(driver).keyBoardEvent("Simensdamm 20")
-                .assertCopyPastText("Simensdamm 20");
-    }
-     */
+
   @Test
   public void keyBoardEventTest() {
-      new TextBoxPage(driver).keyBoardEvent("Simensdamm 20")
+      new TextBoxPage(driver).keyBoardEvent("Simensdamm 20").submit()
               .assertCopyPastText();
   }
 }
